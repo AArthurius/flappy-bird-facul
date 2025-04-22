@@ -1,0 +1,45 @@
+[gd_scene load_steps=6 format=3 uid="uid://cjdwvrx5chjfq"]
+
+[ext_resource type="Script" uid="uid://3svr6stqpw61" path="res://canos.gd" id="1_hp4rb"]
+[ext_resource type="Texture2D" uid="uid://dyoix2ux373o1" path="res://sprites/pipe_green_top.png" id="2_ah8w5"]
+[ext_resource type="Texture2D" uid="uid://b8qww3gyicnpt" path="res://sprites/pipe_green_bottom.png" id="3_yjq6p"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hp4rb"]
+size = Vector2(26, 360)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ah8w5"]
+size = Vector2(20, 28)
+
+[node name="Canos" type="CharacterBody2D"]
+script = ExtResource("1_hp4rb")
+
+[node name="Cano Cima" type="Area2D" parent="."]
+position = Vector2(0, -210)
+
+[node name="Pipe-green2" type="Sprite2D" parent="Cano Cima"]
+texture = ExtResource("2_ah8w5")
+region_rect = Rect2(0, 0, 52, 320)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cano Cima"]
+shape = SubResource("RectangleShape2D_hp4rb")
+
+[node name="Cano Baixo" type="Area2D" parent="."]
+position = Vector2(0, 210)
+
+[node name="Pipe-green" type="Sprite2D" parent="Cano Baixo"]
+texture = ExtResource("3_yjq6p")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cano Baixo"]
+shape = SubResource("RectangleShape2D_hp4rb")
+
+[node name="Despawn" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
+[node name="Points" type="Area2D" parent="." groups=["safe"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Points"]
+shape = SubResource("RectangleShape2D_ah8w5")
+
+[connection signal="timeout" from="Despawn" to="." method="_on_despawn_timeout"]
+[connection signal="area_entered" from="Points" to="." method="_on_points_area_entered"]
