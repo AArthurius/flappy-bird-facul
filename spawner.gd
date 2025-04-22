@@ -11,7 +11,7 @@ const CANOS = preload("res://canos.tscn")
 		#spawnPipe()
 
 func _on_timer_timeout() -> void:
-	if jogador.started == false:
+	if jogador.started == false or jogador.morto:
 		return
 	spawnPipe()
 

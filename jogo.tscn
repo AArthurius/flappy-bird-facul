@@ -1,7 +1,8 @@
-[gd_scene load_steps=22 format=3 uid="uid://cmgxm7xxbmllx"]
+[gd_scene load_steps=23 format=3 uid="uid://cmgxm7xxbmllx"]
 
 [ext_resource type="Script" uid="uid://cdrxktxj56hex" path="res://player.gd" id="1_1ap6j"]
 [ext_resource type="Script" uid="uid://dwqb6l7fogyav" path="res://spawner.gd" id="1_8c340"]
+[ext_resource type="Script" uid="uid://s08ileitx4jg" path="res://back_ground.gd" id="1_qew1n"]
 [ext_resource type="Texture2D" uid="uid://bixsuatw2nvos" path="res://sprites/background/céu azul.png" id="1_t8pok"]
 [ext_resource type="Texture2D" uid="uid://cmqs7ab6fe5vl" path="res://sprites/background/céu.png" id="2_mtw28"]
 [ext_resource type="Texture2D" uid="uid://bt4hca8xttx04" path="res://sprites/background/cidade.png" id="3_orj5g"]
@@ -45,6 +46,53 @@ animations = [{
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1ap6j"]
 size = Vector2(16, 12)
+
+[sub_resource type="Animation" id="Animation_msvki"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Center Instructions:modulate:r")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Center Instructions:modulate:g")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Center Instructions:modulate:b")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Center Instructions:modulate:a")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
 
 [sub_resource type="Animation" id="Animation_7rhuj"]
 resource_name = "fade out"
@@ -94,53 +142,6 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0, 0.5)
 }
 
-[sub_resource type="Animation" id="Animation_msvki"]
-length = 0.001
-tracks/0/type = "bezier"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Center Instructions:modulate:r")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-tracks/1/type = "bezier"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Center Instructions:modulate:g")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-tracks/2/type = "bezier"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Center Instructions:modulate:b")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-tracks/3/type = "bezier"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Center Instructions:modulate:a")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_msvki"]
 _data = {
 &"RESET": SubResource("Animation_msvki"),
@@ -151,6 +152,7 @@ _data = {
 
 [node name="BackGround" type="Node2D" parent="."]
 position = Vector2(96, 0)
+script = ExtResource("1_qew1n")
 
 [node name="CéuAzul" type="Sprite2D" parent="BackGround"]
 position = Vector2(-96, 0)
@@ -217,7 +219,7 @@ autostart = true
 
 [node name="Jogador" type="CharacterBody2D" parent="."]
 z_index = 15
-position = Vector2(-30.5, 0)
+position = Vector2(-30, -48)
 script = ExtResource("1_1ap6j")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="Jogador"]
