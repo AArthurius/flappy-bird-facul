@@ -1,0 +1,765 @@
+[gd_scene load_steps=33 format=3 uid="uid://cmgxm7xxbmllx"]
+
+[ext_resource type="Script" uid="uid://s08ileitx4jg" path="res://Scripts/back_ground.gd" id="1_an0l0"]
+[ext_resource type="Texture2D" uid="uid://bixsuatw2nvos" path="res://sprites/background/céu azul.png" id="2_eqycv"]
+[ext_resource type="Texture2D" uid="uid://cmqs7ab6fe5vl" path="res://sprites/background/céu.png" id="3_kw5yo"]
+[ext_resource type="Texture2D" uid="uid://bt4hca8xttx04" path="res://sprites/background/cidade.png" id="4_4oa7e"]
+[ext_resource type="Texture2D" uid="uid://bi6684qejy888" path="res://sprites/background/grama.png" id="5_m6kt3"]
+[ext_resource type="Texture2D" uid="uid://cajxuqhd022g3" path="res://sprites/background/ground.png" id="6_5fnkj"]
+[ext_resource type="Script" uid="uid://dwqb6l7fogyav" path="res://Scripts/spawner.gd" id="7_vherq"]
+[ext_resource type="Script" uid="uid://cdrxktxj56hex" path="res://Scripts/player.gd" id="8_en3qn"]
+[ext_resource type="Texture2D" uid="uid://c6g6k3dhaqjsq" path="res://sprites/Pássaro/bird_orange_0.png" id="9_nmi6f"]
+[ext_resource type="Texture2D" uid="uid://cu5ikoa326saa" path="res://sprites/Pássaro/bird_orange_1.png" id="10_c4i2n"]
+[ext_resource type="Texture2D" uid="uid://cs4yqjyrei4e3" path="res://sprites/Pássaro/bird_orange_2.png" id="11_ea3do"]
+[ext_resource type="Script" uid="uid://fiwv37etv5ik" path="res://Scripts/ui game.gd" id="12_gqmlc"]
+[ext_resource type="FontFile" uid="uid://du3gtbivqhcby" path="res://fontes/flappy-bird-font.otf" id="13_1swbg"]
+[ext_resource type="Texture2D" uid="uid://dj0cwr0byoraj" path="res://sprites/UI/instructions.png" id="14_uoep5"]
+[ext_resource type="Texture2D" uid="uid://t471fyihnq5f" path="res://sprites/UI/label_get_ready.png" id="15_41rdl"]
+[ext_resource type="Texture2D" uid="uid://c0770cju03ibu" path="res://sprites/UI/button_pause.png" id="16_gvcm3"]
+[ext_resource type="Texture2D" uid="uid://bjsrjkvgo7w8e" path="res://sprites/UI/label_game_over.png" id="17_en3qn"]
+[ext_resource type="Texture2D" uid="uid://da472ohlgj24u" path="res://sprites/UI/panel_score.png" id="17_m6kt3"]
+[ext_resource type="Script" uid="uid://cqdsxged3bpq0" path="res://Scripts/game_over_screen.gd" id="17_vherq"]
+[ext_resource type="FontFile" uid="uid://bwuaaevpf7t67" path="res://fontes/m5x7.ttf" id="18_5fnkj"]
+[ext_resource type="Texture2D" uid="uid://duep833dflpau" path="res://sprites/UI/button_start.png" id="19_vherq"]
+[ext_resource type="Texture2D" uid="uid://swhcajcet4tn" path="res://sprites/UI/button_menu.png" id="20_en3qn"]
+[ext_resource type="Texture2D" uid="uid://c1vfsnia3s4a3" path="res://sprites/rect_white.png" id="21_5fnkj"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_qn35j"]
+normal = Vector2(0, 0.785)
+distance = -161.783
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_45nkh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_nmi6f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_c4i2n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_ea3do")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_c4i2n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_nmi6f")
+}],
+"loop": false,
+"name": &"voar",
+"speed": 12.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1ap6j"]
+size = Vector2(16, 12)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5fnkj"]
+size = Vector2(260, 20)
+
+[sub_resource type="Animation" id="Animation_msvki"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Center Instructions:modulate:r")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Center Instructions:modulate:g")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Center Instructions:modulate:b")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Center Instructions:modulate:a")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Flash:modulate:r")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.05, 0, 0.05, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/5/type = "bezier"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Flash:modulate:g")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.05, 0, 0.05, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/6/type = "bezier"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Flash:modulate:b")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.05, 0, 0.05, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/7/type = "bezier"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Flash:modulate:a")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.05, 0, 0.05, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/8/type = "bezier"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Game Over Sprite:modulate:a")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/9/type = "bezier"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Game Over Sprite:position:y")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(67, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/10/type = "bezier"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Game Over Screen/Game Over tems/Score Panel:position:x")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/11/type = "bezier"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Game Over Screen/Game Over tems/Score Panel:position:y")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/12/type = "bezier"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("Game Over Screen/Game Over tems/Buttons:modulate:r")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/13/type = "bezier"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("Game Over Screen/Game Over tems/Buttons:modulate:g")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/14/type = "bezier"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("Game Over Screen/Game Over tems/Buttons:modulate:b")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/15/type = "bezier"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("Game Over Screen/Game Over tems/Buttons:modulate:a")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_7rhuj"]
+resource_name = "fade out"
+length = 0.5
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Center Instructions:modulate:r")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.5)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Center Instructions:modulate:g")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.5)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Center Instructions:modulate:b")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.5)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Center Instructions:modulate:a")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.5)
+}
+
+[sub_resource type="Animation" id="Animation_vherq"]
+resource_name = "flash"
+length = 0.2
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Flash:modulate:r")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1, -0.05, 0, 0.05, 0, 1, -0.05, 0, 0.05, 0),
+"times": PackedFloat32Array(0, 0.2)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Flash:modulate:g")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1, -0.05, 0, 0.05, 0, 1, -0.05, 0, 0.05, 0),
+"times": PackedFloat32Array(0, 0.2)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Flash:modulate:b")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1, -0.05, 0, 0.05, 0, 1, -0.05, 0, 0.05, 0),
+"times": PackedFloat32Array(0, 0.2)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Flash:modulate:a")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1, -0.05, 0, 0.05, 0, 0, -0.05, 0, 0.05, 0),
+"times": PackedFloat32Array(0, 0.2)
+}
+
+[sub_resource type="Animation" id="Animation_nmi6f"]
+resource_name = "Game Over"
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Game Over Sprite:modulate:a")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.5)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Game Over Sprite:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(67, -0.25, 0, 0.25, 0, 60, -0.25, 0, 0.25, 0, 75, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.233333, 0.766667)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Game Over Screen/Game Over tems/Score Panel:position:x")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.5)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Game Over Screen/Game Over tems/Score Panel:position:y")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(157, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.5)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Game Over Screen/Game Over tems/Buttons:modulate:r")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0.5, 1)
+}
+tracks/5/type = "bezier"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Game Over Screen/Game Over tems/Buttons:modulate:g")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0.5, 1)
+}
+tracks/6/type = "bezier"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Game Over Screen/Game Over tems/Buttons:modulate:b")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0.5, 1)
+}
+tracks/7/type = "bezier"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Game Over Screen/Game Over tems/Buttons:modulate:a")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0.5, 1)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_msvki"]
+_data = {
+&"Game Over": SubResource("Animation_nmi6f"),
+&"RESET": SubResource("Animation_msvki"),
+&"fade out": SubResource("Animation_7rhuj"),
+&"flash": SubResource("Animation_vherq")
+}
+
+[node name="Jogo" type="Node2D"]
+
+[node name="BackGround" type="Node2D" parent="."]
+position = Vector2(96, 0)
+script = ExtResource("1_an0l0")
+
+[node name="CéuAzul" type="Sprite2D" parent="BackGround"]
+position = Vector2(-96, 0)
+texture = ExtResource("2_eqycv")
+
+[node name="Parallax2D" type="Parallax2D" parent="BackGround"]
+repeat_size = Vector2(144, 0)
+autoscroll = Vector2(-10, 0)
+repeat_times = 2
+ignore_camera_scroll = true
+
+[node name="Céu" type="Sprite2D" parent="BackGround/Parallax2D"]
+texture = ExtResource("3_kw5yo")
+
+[node name="Parallax2D2" type="Parallax2D" parent="BackGround"]
+repeat_size = Vector2(144, 0)
+autoscroll = Vector2(-15, 0)
+repeat_times = 2
+
+[node name="cidade" type="Sprite2D" parent="BackGround/Parallax2D2"]
+texture = ExtResource("4_4oa7e")
+
+[node name="Parallax2D3" type="Parallax2D" parent="BackGround"]
+repeat_size = Vector2(144, 0)
+autoscroll = Vector2(-20, 0)
+repeat_times = 2
+
+[node name="grama" type="Sprite2D" parent="BackGround/Parallax2D3"]
+texture = ExtResource("5_m6kt3")
+
+[node name="Parallax2D4" type="Parallax2D" parent="BackGround"]
+scroll_offset = Vector2(0, -40.5)
+repeat_size = Vector2(144, 0)
+autoscroll = Vector2(-100, 0)
+repeat_times = 2
+
+[node name="Ground" type="Sprite2D" parent="BackGround/Parallax2D4"]
+z_index = 10
+position = Vector2(0, 143)
+texture = ExtResource("6_5fnkj")
+
+[node name="Cantos" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cantos"]
+shape = SubResource("WorldBoundaryShape2D_qn35j")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Cantos"]
+position = Vector2(0, -54)
+rotation = 3.14159
+shape = SubResource("WorldBoundaryShape2D_qn35j")
+
+[node name="Spawner" type="Node2D" parent="."]
+script = ExtResource("7_vherq")
+
+[node name="Marker2D" type="Marker2D" parent="Spawner"]
+position = Vector2(227, -90)
+
+[node name="Marker2D2" type="Marker2D" parent="Spawner"]
+position = Vector2(227, 32)
+
+[node name="Timer" type="Timer" parent="Spawner"]
+wait_time = 1.5
+autostart = true
+
+[node name="Jogador" type="CharacterBody2D" parent="."]
+z_index = 15
+position = Vector2(-30, -48)
+script = ExtResource("8_en3qn")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="Jogador"]
+sprite_frames = SubResource("SpriteFrames_45nkh")
+animation = &"voar"
+frame = 4
+frame_progress = 1.0
+
+[node name="hitbox" type="Area2D" parent="Jogador"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Jogador/hitbox"]
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_1ap6j")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Jogador"]
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_1ap6j")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Chão hitbox" type="StaticBody2D" parent="."]
+position = Vector2(0, 85)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Chão hitbox"]
+position = Vector2(1, 0)
+shape = SubResource("RectangleShape2D_5fnkj")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="UI" type="Control" parent="CanvasLayer"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("12_gqmlc")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/UI"]
+libraries = {
+&"": SubResource("AnimationLibrary_msvki")
+}
+
+[node name="Point Display" type="Label" parent="CanvasLayer/UI"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -8.0
+offset_top = 8.0
+offset_right = 9.0
+offset_bottom = 31.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("13_1swbg")
+theme_override_font_sizes/font_size = 20
+text = "0"
+
+[node name="Center Instructions" type="CenterContainer" parent="CanvasLayer/UI"]
+visible = false
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -45.0
+offset_bottom = -45.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Intructions" type="Control" parent="CanvasLayer/UI/Center Instructions"]
+layout_mode = 2
+
+[node name="Instructions sprite" type="TextureRect" parent="CanvasLayer/UI/Center Instructions/Intructions"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -28.5
+offset_top = 30.0
+offset_right = 28.5
+offset_bottom = 79.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("14_uoep5")
+
+[node name="Get ready sprite" type="TextureRect" parent="CanvasLayer/UI/Center Instructions/Intructions"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -46.0
+offset_top = -28.0
+offset_right = 46.0
+offset_bottom = -3.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("15_41rdl")
+
+[node name="Pause Container" type="CenterContainer" parent="CanvasLayer/UI"]
+layout_mode = 1
+offset_right = 23.0
+offset_bottom = 25.0
+
+[node name="Pause Button" type="TextureButton" parent="CanvasLayer/UI/Pause Container"]
+layout_mode = 2
+texture_normal = ExtResource("16_gvcm3")
+
+[node name="Game Over Sprite" type="TextureRect" parent="CanvasLayer/UI"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -48.0
+offset_top = -61.0
+offset_right = 48.0
+offset_bottom = -40.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("17_en3qn")
+
+[node name="Game Over Screen" type="CenterContainer" parent="CanvasLayer/UI"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("17_vherq")
+
+[node name="Game Over tems" type="Control" parent="CanvasLayer/UI/Game Over Screen"]
+layout_mode = 2
+
+[node name="Score Panel" type="Control" parent="CanvasLayer/UI/Game Over Screen/Game Over tems"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/UI/Game Over Screen/Game Over tems/Score Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -56.5
+offset_top = -28.5
+offset_right = 56.5
+offset_bottom = 28.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/UI/Game Over Screen/Game Over tems/Score Panel/CenterContainer"]
+layout_mode = 2
+texture = ExtResource("17_m6kt3")
+
+[node name="Score" type="Label" parent="CanvasLayer/UI/Game Over Screen/Game Over tems/Score Panel"]
+layout_mode = 0
+offset_left = 23.0
+offset_top = -15.0
+offset_right = 46.0
+offset_bottom = -2.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("18_5fnkj")
+theme_override_font_sizes/font_size = 16
+text = "123"
+horizontal_alignment = 2
+
+[node name="Text" type="Label" parent="CanvasLayer/UI/Game Over Screen/Game Over tems/Score Panel/Score"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = -1.0
+offset_right = 23.0
+offset_bottom = 12.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("18_5fnkj")
+theme_override_font_sizes/font_size = 16
+text = "123"
+horizontal_alignment = 2
+
+[node name="Best" type="Label" parent="CanvasLayer/UI/Game Over Screen/Game Over tems/Score Panel"]
+layout_mode = 0
+offset_left = 23.0
+offset_top = 6.0
+offset_right = 46.0
+offset_bottom = 19.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("18_5fnkj")
+theme_override_font_sizes/font_size = 16
+text = "123"
+horizontal_alignment = 2
+
+[node name="Text" type="Label" parent="CanvasLayer/UI/Game Over Screen/Game Over tems/Score Panel/Best"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = -1.0
+offset_right = 23.0
+offset_bottom = 12.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("18_5fnkj")
+theme_override_font_sizes/font_size = 16
+text = "123"
+horizontal_alignment = 2
+
+[node name="Buttons" type="HBoxContainer" parent="CanvasLayer/UI/Game Over Screen/Game Over tems"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 0.5
+offset_top = 49.0
+offset_right = 0.5
+offset_bottom = 63.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="Restart Button" type="TextureButton" parent="CanvasLayer/UI/Game Over Screen/Game Over tems/Buttons"]
+layout_mode = 2
+texture_normal = ExtResource("19_vherq")
+
+[node name="Menu Button" type="TextureButton" parent="CanvasLayer/UI/Game Over Screen/Game Over tems/Buttons"]
+layout_mode = 2
+texture_normal = ExtResource("20_en3qn")
+
+[node name="Flash" type="TextureRect" parent="CanvasLayer/UI"]
+visible = false
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = -6.0
+offset_top = -3.0
+offset_right = 147.0
+offset_bottom = 259.0
+texture = ExtResource("21_5fnkj")
+
+[connection signal="timeout" from="Spawner/Timer" to="Spawner" method="_on_timer_timeout"]
+[connection signal="area_entered" from="Jogador/hitbox" to="Jogador" method="_on_area_2d_area_entered"]
+[connection signal="animation_finished" from="CanvasLayer/UI/AnimationPlayer" to="CanvasLayer/UI" method="_on_animation_player_animation_finished"]
+[connection signal="pressed" from="CanvasLayer/UI/Pause Container/Pause Button" to="CanvasLayer/UI" method="_on_pause_button_pressed"]

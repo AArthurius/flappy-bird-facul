@@ -1,0 +1,259 @@
+[gd_scene load_steps=4 format=3 uid="uid://eljsnaxk8g1q"]
+
+[ext_resource type="Texture2D" uid="uid://lagiumkbyb1b" path="res://sprites/UI/panel.png" id="1_b6mkm"]
+[ext_resource type="FontFile" uid="uid://bwuaaevpf7t67" path="res://fontes/m5x7.ttf" id="2_b41xk"]
+[ext_resource type="Script" uid="uid://div0rnbqj51li" path="res://Scripts/score_list.gd" id="3_0i5of"]
+
+[node name="Highscores" type="Control"]
+layout_mode = 3
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -78.0
+offset_bottom = 41.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -56.5
+offset_top = -53.0
+offset_right = 56.5
+offset_bottom = 53.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="Panel"]
+layout_mode = 2
+texture = ExtResource("1_b6mkm")
+
+[node name="High Scores Text" type="CenterContainer" parent="."]
+layout_mode = 2
+offset_left = 20.0
+offset_top = 8.0
+offset_right = 125.0
+offset_bottom = 21.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Text Shadow" type="Label" parent="High Scores Text"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.941176, 0.913725, 0.647059, 1)
+theme_override_fonts/font = ExtResource("2_b41xk")
+theme_override_font_sizes/font_size = 16
+text = "High Scores"
+
+[node name="Text" type="Label" parent="High Scores Text/Text Shadow"]
+layout_mode = 0
+offset_top = -1.0
+offset_right = 83.0
+offset_bottom = 12.0
+theme_override_colors/font_color = Color(0.976471, 0.47451, 0.364706, 1)
+theme_override_fonts/font = ExtResource("2_b41xk")
+theme_override_font_sizes/font_size = 16
+text = "High Scores"
+
+[node name="Score List" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 22.0
+offset_right = 125.0
+offset_bottom = 110.0
+alignment = 1
+script = ExtResource("3_0i5of")
+
+[node name="Score" type="SplitContainer" parent="Score List"]
+layout_mode = 2
+split_offset = 87
+
+[node name="Rank" type="Label" parent="Score List/Score"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.941176, 0.913725, 0.647059, 1)
+theme_override_fonts/font = ExtResource("2_b41xk")
+theme_override_font_sizes/font_size = 16
+text = "#1"
+
+[node name="Text" type="Label" parent="Score List/Score/Rank"]
+layout_mode = 0
+offset_top = -1.0
+offset_right = 12.0
+offset_bottom = 12.0
+theme_override_colors/font_color = Color(0.976471, 0.47451, 0.364706, 1)
+theme_override_fonts/font = ExtResource("2_b41xk")
+theme_override_font_sizes/font_size = 16
+text = "#1"
+
+[node name="Score" type="Label" parent="Score List/Score"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.941176, 0.913725, 0.647059, 1)
+theme_override_fonts/font = ExtResource("2_b41xk")
+theme_override_font_sizes/font_size = 16
+text = "10"
+
+[node name="Text" type="Label" parent="Score List/Score/Score"]
+layout_mode = 0
+offset_top = -1.0
+offset_right = 12.0
+offset_bottom = 12.0
+theme_override_colors/font_color = Color(0.976471, 0.47451, 0.364706, 1)
+theme_override_fonts/font = ExtResource("2_b41xk")
+theme_override_font_sizes/font_size = 16
+text = "10"
+
+[node name="Score2" type="SplitContainer" parent="Score List"]
+layout_mode = 2
+split_offset = 87
+
+[node name="Rank" type="Label" parent="Score List/Score2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.941176, 0.913725, 0.647059, 1)
+theme_override_fonts/font = ExtResource("2_b41xk")
+theme_override_font_sizes/font_size = 16
+text = "#2"
+
+[node name="Text" type="Label" parent="Score List/Score2/Rank"]
+layout_mode = 0
+offset_top = -1.0
+offset_right = 12.0
+offset_bottom = 12.0
+theme_override_colors/font_color = Color(0.976471, 0.47451, 0.364706, 1)
+theme_override_fonts/font = ExtResource("2_b41xk")
+theme_override_font_sizes/font_size = 16
+text = "#2"
+
+[node name="Score" type="Label" parent="Score List/Score2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.941176, 0.913725, 0.647059, 1)
+theme_override_fonts/font = ExtResource("2_b41xk")
+theme_override_font_sizes/font_size = 16
+text = "10"
+
+[node name="Text" type="Label" parent="Score List/Score2/Score"]
+layout_mode = 0
+offset_top = -1.0
+offset_right = 12.0
+offset_bottom = 12.0
+theme_override_colors/font_color = Color(0.976471, 0.47451, 0.364706, 1)
+theme_override_fonts/font = ExtResource("2_b41xk")
+theme_override_font_sizes/font_size = 16
+text = "10"
+
+[node name="Score3" type="SplitContainer" parent="Score List"]
+layout_mode = 2
+split_offset = 87
+
+[node name="Rank" type="Label" parent="Score List/Score3"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.941176, 0.913725, 0.647059, 1)
+theme_override_fonts/font = ExtResource("2_b41xk")
+theme_override_font_sizes/font_size = 16
+text = "#3"
+
+[node name="Text" type="Label" parent="Score List/Score3/Rank"]
+layout_mode = 0
+offset_top = -1.0
+offset_right = 12.0
+offset_bottom = 12.0
+theme_override_colors/font_color = Color(0.976471, 0.47451, 0.364706, 1)
+theme_override_fonts/font = ExtResource("2_b41xk")
+theme_override_font_sizes/font_size = 16
+text = "#3"
+
+[node name="Score" type="Label" parent="Score List/Score3"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.941176, 0.913725, 0.647059, 1)
+theme_override_fonts/font = ExtResource("2_b41xk")
+theme_override_font_sizes/font_size = 16
+text = "10"
+
+[node name="Text" type="Label" parent="Score List/Score3/Score"]
+layout_mode = 0
+offset_top = -1.0
+offset_right = 12.0
+offset_bottom = 12.0
+theme_override_colors/font_color = Color(0.976471, 0.47451, 0.364706, 1)
+theme_override_fonts/font = ExtResource("2_b41xk")
+theme_override_font_sizes/font_size = 16
+text = "10"
+
+[node name="Score4" type="SplitContainer" parent="Score List"]
+layout_mode = 2
+split_offset = 87
+
+[node name="Rank" type="Label" parent="Score List/Score4"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.941176, 0.913725, 0.647059, 1)
+theme_override_fonts/font = ExtResource("2_b41xk")
+theme_override_font_sizes/font_size = 16
+text = "#4"
+
+[node name="Text" type="Label" parent="Score List/Score4/Rank"]
+layout_mode = 0
+offset_top = -1.0
+offset_right = 12.0
+offset_bottom = 12.0
+theme_override_colors/font_color = Color(0.976471, 0.47451, 0.364706, 1)
+theme_override_fonts/font = ExtResource("2_b41xk")
+theme_override_font_sizes/font_size = 16
+text = "#4"
+
+[node name="Score" type="Label" parent="Score List/Score4"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.941176, 0.913725, 0.647059, 1)
+theme_override_fonts/font = ExtResource("2_b41xk")
+theme_override_font_sizes/font_size = 16
+text = "10"
+
+[node name="Text" type="Label" parent="Score List/Score4/Score"]
+layout_mode = 0
+offset_top = -1.0
+offset_right = 12.0
+offset_bottom = 12.0
+theme_override_colors/font_color = Color(0.976471, 0.47451, 0.364706, 1)
+theme_override_fonts/font = ExtResource("2_b41xk")
+theme_override_font_sizes/font_size = 16
+text = "10"
+
+[node name="Score5" type="SplitContainer" parent="Score List"]
+layout_mode = 2
+split_offset = 87
+
+[node name="Rank" type="Label" parent="Score List/Score5"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.941176, 0.913725, 0.647059, 1)
+theme_override_fonts/font = ExtResource("2_b41xk")
+theme_override_font_sizes/font_size = 16
+text = "#5"
+
+[node name="Text" type="Label" parent="Score List/Score5/Rank"]
+layout_mode = 0
+offset_top = -1.0
+offset_right = 12.0
+offset_bottom = 12.0
+theme_override_colors/font_color = Color(0.976471, 0.47451, 0.364706, 1)
+theme_override_fonts/font = ExtResource("2_b41xk")
+theme_override_font_sizes/font_size = 16
+text = "#5"
+
+[node name="Score" type="Label" parent="Score List/Score5"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.941176, 0.913725, 0.647059, 1)
+theme_override_fonts/font = ExtResource("2_b41xk")
+theme_override_font_sizes/font_size = 16
+text = "10"
+
+[node name="Text" type="Label" parent="Score List/Score5/Score"]
+layout_mode = 0
+offset_top = -1.0
+offset_right = 12.0
+offset_bottom = 12.0
+theme_override_colors/font_color = Color(0.976471, 0.47451, 0.364706, 1)
+theme_override_fonts/font = ExtResource("2_b41xk")
+theme_override_font_sizes/font_size = 16
+text = "10"
