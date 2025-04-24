@@ -10,7 +10,9 @@ extends Control
 const BUTTON_PAUSE = preload("res://sprites/UI/button_pause.png")
 const BUTTON_RESUME = preload("res://sprites/UI/button_resume.png")
 
-func ready():
+func _ready():
+	$fade.show()
+	animation.play("game fade in")
 	Global.currentScore = 0
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -47,3 +49,5 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 		gameOver()
 	if anim_name == "fade out":
 		$"Center Instructions".queue_free()
+	if anim_name == "game fade in":
+		$fade.hide()

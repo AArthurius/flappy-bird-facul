@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://cmgxm7xxbmllx"]
+[gd_scene load_steps=39 format=3 uid="uid://cmgxm7xxbmllx"]
 
 [ext_resource type="Script" uid="uid://s08ileitx4jg" path="res://Scripts/back_ground.gd" id="1_an0l0"]
 [ext_resource type="Texture2D" uid="uid://bixsuatw2nvos" path="res://sprites/background/céu azul.png" id="2_eqycv"]
@@ -25,6 +25,7 @@
 [ext_resource type="Texture2D" uid="uid://c1vfsnia3s4a3" path="res://sprites/rect_white.png" id="21_5fnkj"]
 [ext_resource type="Texture2D" uid="uid://banrmyp2xk20s" path="res://sprites/UI/button_restar_pressedt.png" id="22_nmi6f"]
 [ext_resource type="Texture2D" uid="uid://dyw0ofg6h03i" path="res://sprites/UI/button_menu pressed.png" id="24_c4i2n"]
+[ext_resource type="Texture2D" uid="uid://dvj1rgw1vwwo1" path="res://sprites/rect_black.png" id="26_ea3do"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_qn35j"]
 normal = Vector2(0, 0.785)
@@ -328,6 +329,50 @@ tracks/15/keys = {
 "points": PackedFloat32Array(1, -0.1, 0, 0.1, 0),
 "times": PackedFloat32Array(0)
 }
+tracks/16/type = "bezier"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("fade:modulate:r")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/17/type = "bezier"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath("fade:modulate:g")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/18/type = "bezier"
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/path = NodePath("fade:modulate:b")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/19/type = "bezier"
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/path = NodePath("fade:modulate:a")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
 
 [sub_resource type="Animation" id="Animation_7rhuj"]
 resource_name = "fade out"
@@ -473,12 +518,110 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0, 0.5, 1)
 }
 
+[sub_resource type="Animation" id="Animation_gqmlc"]
+resource_name = "game fade in"
+length = 0.5
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("fade:modulate:r")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.5)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("fade:modulate:g")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.5)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("fade:modulate:b")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.5)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("fade:modulate:a")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.5)
+}
+
+[sub_resource type="Animation" id="Animation_ea3do"]
+resource_name = "game fade out"
+length = 0.5
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("fade:modulate:r")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.5)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("fade:modulate:g")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.5)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("fade:modulate:b")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.5)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("fade:modulate:a")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.5)
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_msvki"]
 _data = {
 &"Game Over": SubResource("Animation_nmi6f"),
 &"RESET": SubResource("Animation_msvki"),
 &"fade out": SubResource("Animation_7rhuj"),
 &"flash": SubResource("Animation_vherq"),
+&"game fade in": SubResource("Animation_gqmlc"),
+&"game fade out": SubResource("Animation_ea3do"),
 &"instructions idle": SubResource("Animation_c4i2n")
 }
 
@@ -815,9 +958,17 @@ offset_right = 147.0
 offset_bottom = 259.0
 texture = ExtResource("21_5fnkj")
 
+[node name="fade" type="TextureRect" parent="CanvasLayer/UI"]
+offset_left = -16.0
+offset_top = -9.0
+offset_right = 167.0
+offset_bottom = 287.0
+texture = ExtResource("26_ea3do")
+
 [connection signal="timeout" from="Spawner/Timer" to="Spawner" method="_on_timer_timeout"]
 [connection signal="area_entered" from="Jogador/hitbox" to="Jogador" method="_on_area_2d_area_entered"]
 [connection signal="animation_finished" from="CanvasLayer/UI/AnimationPlayer" to="CanvasLayer/UI" method="_on_animation_player_animation_finished"]
+[connection signal="animation_finished" from="CanvasLayer/UI/AnimationPlayer" to="CanvasLayer/UI/Game Over Screen" method="_on_animation_player_animation_finished"]
 [connection signal="pressed" from="CanvasLayer/UI/Pause Container/Pause Button" to="CanvasLayer/UI" method="_on_pause_button_pressed"]
 [connection signal="button_up" from="CanvasLayer/UI/Game Over Screen/Game Over tems/Buttons/Restart Button" to="CanvasLayer/UI/Game Over Screen" method="_on_restart_button_button_up"]
 [connection signal="button_up" from="CanvasLayer/UI/Game Over Screen/Game Over tems/Buttons/Menu Button" to="CanvasLayer/UI/Game Over Screen" method="_on_menu_button_button_up"]
