@@ -5,12 +5,17 @@ extends CharacterBody2D
 
 const GRAVIDADE = 1000
 const VELOCIDADE_ROTAÇÃO = 0.5
+const ACC = 100
+const SPEED = 100
+const MAXSPEED = 200
 
+var dir = 0.0
 var started = false
 var morto = false
 
 func _process(delta: float) -> void:
 	if !started:
+		sprite.play("voar")
 		if Input.is_action_just_pressed("espaço") and not morto:    
 			voar()
 			started = true
@@ -28,16 +33,26 @@ func _physics_process(delta: float) -> void:
 	if !started:
 		return
 	
+	dir = Input.get_axis("A", "D")
+	
+	
 	if Input.is_action_just_pressed("espaço") and not morto:    
 		voar()
 	else:
 		velocity.y = velocity.y + GRAVIDADE * delta
 	
+	if velocity.x > 0:
+		velocity.x = velocity.x - ACC * delta
+	elif velocity.x < 0:
+		velocity.x = velocity.x + ACC * delta
+	
+	velocity.x = clamp(velocity.x, -MAXSPEED, MAXSPEED)
 	velocity.y = clamp(velocity.y, -200, 200)
 	move_and_slide()
 
 func voar():
-	velocity.y = -200
+	velocity.y = -300
+	velocity.x = velocity.x + (dir * SPEED)
 	sprite.rotation = deg_to_rad(0)
 	sprite.play("voar")
 

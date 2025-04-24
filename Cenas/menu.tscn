@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dmjypnm10cjlu"]
+[gd_scene load_steps=13 format=3 uid="uid://dmjypnm10cjlu"]
 
 [ext_resource type="Texture2D" uid="uid://bixsuatw2nvos" path="res://sprites/background/céu azul.png" id="1_2sm5j"]
 [ext_resource type="Texture2D" uid="uid://cmqs7ab6fe5vl" path="res://sprites/background/céu.png" id="2_bpp88"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://li2byn7dfxms" path="res://sprites/UI/button_play_pressed.png" id="9_h2l4q"]
 [ext_resource type="Texture2D" uid="uid://bhksbon8l4cc" path="res://sprites/UI/button_score_normal.png" id="10_2foik"]
 [ext_resource type="Texture2D" uid="uid://pd00ec8yi6vp" path="res://sprites/UI/button_score_pressed.png" id="11_nmepg"]
+[ext_resource type="PackedScene" uid="uid://eljsnaxk8g1q" path="res://Cenas/highscores.tscn" id="12_bpp88"]
 
 [node name="Menu" type="Node2D"]
 
@@ -107,6 +108,10 @@ texture_pressed = ExtResource("9_h2l4q")
 layout_mode = 2
 texture_normal = ExtResource("10_2foik")
 texture_pressed = ExtResource("11_nmepg")
+
+[node name="Highscores" parent="Canvas/UI" instance=ExtResource("12_bpp88")]
+visible = false
+layout_mode = 1
 
 [connection signal="button_up" from="Canvas/UI/CenterContainer/HBoxContainer/Start" to="Canvas/UI" method="_on_start_button_up"]
 [connection signal="button_up" from="Canvas/UI/CenterContainer/HBoxContainer/HighScores" to="Canvas/UI" method="_on_high_scores_button_up"]
