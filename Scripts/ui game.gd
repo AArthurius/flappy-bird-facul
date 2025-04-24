@@ -38,6 +38,7 @@ func flash():
 	pause_button.visible = false
 
 func gameOver():
+	$fade.hide()
 	$Flash.show()
 	pause_button.visible = false
 	animation.play("Game Over")

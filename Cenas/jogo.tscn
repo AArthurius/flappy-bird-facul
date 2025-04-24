@@ -959,6 +959,7 @@ offset_bottom = 259.0
 texture = ExtResource("21_5fnkj")
 
 [node name="fade" type="TextureRect" parent="CanvasLayer/UI"]
+visible = false
 offset_left = -16.0
 offset_top = -9.0
 offset_right = 167.0
