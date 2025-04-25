@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://dmjypnm10cjlu"]
+[gd_scene load_steps=22 format=3 uid="uid://dmjypnm10cjlu"]
 
 [ext_resource type="Texture2D" uid="uid://bixsuatw2nvos" path="res://sprites/background/céu azul.png" id="1_2sm5j"]
 [ext_resource type="Texture2D" uid="uid://cmqs7ab6fe5vl" path="res://sprites/background/céu.png" id="2_bpp88"]
@@ -11,23 +11,10 @@
 [ext_resource type="Texture2D" uid="uid://li2byn7dfxms" path="res://sprites/UI/button_play_pressed.png" id="9_h2l4q"]
 [ext_resource type="Texture2D" uid="uid://bhksbon8l4cc" path="res://sprites/UI/button_score_normal.png" id="10_2foik"]
 [ext_resource type="Texture2D" uid="uid://pd00ec8yi6vp" path="res://sprites/UI/button_score_pressed.png" id="11_nmepg"]
-[ext_resource type="PackedScene" uid="uid://eljsnaxk8g1q" path="res://Cenas/highscores.tscn" id="12_bpp88"]
+[ext_resource type="Texture2D" uid="uid://lagiumkbyb1b" path="res://sprites/UI/panel.png" id="12_mbksb"]
+[ext_resource type="FontFile" uid="uid://bwuaaevpf7t67" path="res://fontes/m5x7.ttf" id="13_8rl8v"]
 [ext_resource type="Texture2D" uid="uid://dvj1rgw1vwwo1" path="res://sprites/rect_black.png" id="13_ctkf8"]
-
-[sub_resource type="Animation" id="Animation_bro6f"]
-resource_name = "menu fade out"
-length = 0.5
-tracks/0/type = "bezier"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("fade:modulate:a")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 0.5)
-}
+[ext_resource type="Script" uid="uid://div0rnbqj51li" path="res://Scripts/score_list.gd" id="14_dodec"]
 
 [sub_resource type="Animation" id="Animation_mbksb"]
 length = 0.001
@@ -98,6 +85,69 @@ tracks/5/keys = {
 "times": PackedFloat32Array(0)
 }
 
+[sub_resource type="Animation" id="Animation_ctkf8"]
+resource_name = "menu fade in"
+length = 0.5
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("fade:modulate:r")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.5)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("fade:modulate:g")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.5)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("fade:modulate:b")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.5)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("fade:modulate:a")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.5)
+}
+
+[sub_resource type="Animation" id="Animation_bro6f"]
+resource_name = "menu fade out"
+length = 0.5
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("fade:modulate:a")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.5)
+}
+
 [sub_resource type="Animation" id="Animation_8rl8v"]
 resource_name = "scores enter"
 length = 0.5
@@ -147,54 +197,6 @@ tracks/1/loop_wrap = true
 tracks/1/keys = {
 "handle_modes": PackedInt32Array(0, 0),
 "points": PackedFloat32Array(50, -0.25, 0, 0.25, 0, 50, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 0.5)
-}
-
-[sub_resource type="Animation" id="Animation_ctkf8"]
-resource_name = "menu fade in"
-length = 0.5
-tracks/0/type = "bezier"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("fade:modulate:r")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 0.5)
-}
-tracks/1/type = "bezier"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("fade:modulate:g")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 0.5)
-}
-tracks/2/type = "bezier"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("fade:modulate:b")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 0.5)
-}
-tracks/3/type = "bezier"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("fade:modulate:a")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0, 0.5)
 }
 
@@ -265,7 +267,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("6_8rl8v")
 
-[node name="TextureRect" type="TextureRect" parent="Canvas/UI"]
+[node name="Título" type="TextureRect" parent="Canvas/UI"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -280,7 +282,7 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("7_dodec")
 
-[node name="CenterContainer" type="CenterContainer" parent="Canvas/UI"]
+[node name="Botões" type="CenterContainer" parent="Canvas/UI"]
 layout_mode = 1
 anchors_preset = -1
 anchor_top = 0.664063
@@ -290,21 +292,286 @@ grow_horizontal = 2
 grow_vertical = 0
 metadata/_edit_use_anchors_ = true
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Canvas/UI/CenterContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Canvas/UI/Botões"]
 layout_mode = 2
 
-[node name="Start" type="TextureButton" parent="Canvas/UI/CenterContainer/HBoxContainer"]
+[node name="Start" type="TextureButton" parent="Canvas/UI/Botões/HBoxContainer"]
 layout_mode = 2
 texture_normal = ExtResource("8_w0id7")
 texture_pressed = ExtResource("9_h2l4q")
 
-[node name="HighScores" type="TextureButton" parent="Canvas/UI/CenterContainer/HBoxContainer"]
+[node name="HighScores" type="TextureButton" parent="Canvas/UI/Botões/HBoxContainer"]
 layout_mode = 2
 texture_normal = ExtResource("10_2foik")
 texture_pressed = ExtResource("11_nmepg")
 
-[node name="Highscores" parent="Canvas/UI" instance=ExtResource("12_bpp88")]
+[node name="Highscores" type="Control" parent="Canvas/UI"]
 layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -78.0
+offset_bottom = 41.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Panel" type="CenterContainer" parent="Canvas/UI/Highscores"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -56.5
+offset_top = -53.0
+offset_right = 56.5
+offset_bottom = 53.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="Canvas/UI/Highscores/Panel"]
+layout_mode = 2
+texture = ExtResource("12_mbksb")
+
+[node name="High Scores Text" type="CenterContainer" parent="Canvas/UI/Highscores"]
+layout_mode = 2
+offset_left = 20.0
+offset_top = 8.0
+offset_right = 125.0
+offset_bottom = 21.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Text Shadow" type="Label" parent="Canvas/UI/Highscores/High Scores Text"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.941176, 0.913725, 0.647059, 1)
+theme_override_fonts/font = ExtResource("13_8rl8v")
+theme_override_font_sizes/font_size = 16
+text = "High Scores"
+
+[node name="Text" type="Label" parent="Canvas/UI/Highscores/High Scores Text/Text Shadow"]
+layout_mode = 0
+offset_top = -1.0
+offset_right = 83.0
+offset_bottom = 12.0
+theme_override_colors/font_color = Color(0.976471, 0.47451, 0.364706, 1)
+theme_override_fonts/font = ExtResource("13_8rl8v")
+theme_override_font_sizes/font_size = 16
+text = "High Scores"
+
+[node name="Score List" type="VBoxContainer" parent="Canvas/UI/Highscores"]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 22.0
+offset_right = 125.0
+offset_bottom = 110.0
+mouse_filter = 2
+mouse_default_cursor_shape = 8
+alignment = 1
+script = ExtResource("14_dodec")
+
+[node name="Score" type="SplitContainer" parent="Canvas/UI/Highscores/Score List"]
+layout_mode = 2
+mouse_filter = 2
+mouse_default_cursor_shape = 2
+split_offset = 87
+dragging_enabled = false
+
+[node name="Rank" type="Label" parent="Canvas/UI/Highscores/Score List/Score"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("13_8rl8v")
+theme_override_font_sizes/font_size = 16
+text = "#1"
+
+[node name="Text" type="Label" parent="Canvas/UI/Highscores/Score List/Score/Rank"]
+layout_mode = 0
+offset_top = -1.0
+offset_right = 12.0
+offset_bottom = 12.0
+theme_override_colors/font_color = Color(0.976471, 0.47451, 0.364706, 1)
+theme_override_fonts/font = ExtResource("13_8rl8v")
+theme_override_font_sizes/font_size = 16
+text = "#1"
+
+[node name="Score" type="Label" parent="Canvas/UI/Highscores/Score List/Score"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("13_8rl8v")
+theme_override_font_sizes/font_size = 16
+text = "10"
+
+[node name="Text" type="Label" parent="Canvas/UI/Highscores/Score List/Score/Score"]
+layout_mode = 0
+offset_top = -1.0
+offset_right = 12.0
+offset_bottom = 12.0
+theme_override_colors/font_color = Color(0.976471, 0.47451, 0.364706, 1)
+theme_override_fonts/font = ExtResource("13_8rl8v")
+theme_override_font_sizes/font_size = 16
+text = "10"
+
+[node name="Score2" type="SplitContainer" parent="Canvas/UI/Highscores/Score List"]
+layout_mode = 2
+mouse_filter = 2
+split_offset = 87
+dragging_enabled = false
+
+[node name="Rank" type="Label" parent="Canvas/UI/Highscores/Score List/Score2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("13_8rl8v")
+theme_override_font_sizes/font_size = 16
+text = "#2"
+
+[node name="Text" type="Label" parent="Canvas/UI/Highscores/Score List/Score2/Rank"]
+layout_mode = 0
+offset_top = -1.0
+offset_right = 12.0
+offset_bottom = 12.0
+theme_override_colors/font_color = Color(0.976471, 0.47451, 0.364706, 1)
+theme_override_fonts/font = ExtResource("13_8rl8v")
+theme_override_font_sizes/font_size = 16
+text = "#2"
+
+[node name="Score" type="Label" parent="Canvas/UI/Highscores/Score List/Score2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("13_8rl8v")
+theme_override_font_sizes/font_size = 16
+text = "10"
+
+[node name="Text" type="Label" parent="Canvas/UI/Highscores/Score List/Score2/Score"]
+layout_mode = 0
+offset_top = -1.0
+offset_right = 12.0
+offset_bottom = 12.0
+theme_override_colors/font_color = Color(0.976471, 0.47451, 0.364706, 1)
+theme_override_fonts/font = ExtResource("13_8rl8v")
+theme_override_font_sizes/font_size = 16
+text = "10"
+
+[node name="Score3" type="SplitContainer" parent="Canvas/UI/Highscores/Score List"]
+layout_mode = 2
+mouse_filter = 2
+split_offset = 87
+dragging_enabled = false
+
+[node name="Rank" type="Label" parent="Canvas/UI/Highscores/Score List/Score3"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("13_8rl8v")
+theme_override_font_sizes/font_size = 16
+text = "#3"
+
+[node name="Text" type="Label" parent="Canvas/UI/Highscores/Score List/Score3/Rank"]
+layout_mode = 0
+offset_top = -1.0
+offset_right = 12.0
+offset_bottom = 12.0
+theme_override_colors/font_color = Color(0.976471, 0.47451, 0.364706, 1)
+theme_override_fonts/font = ExtResource("13_8rl8v")
+theme_override_font_sizes/font_size = 16
+text = "#3"
+
+[node name="Score" type="Label" parent="Canvas/UI/Highscores/Score List/Score3"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("13_8rl8v")
+theme_override_font_sizes/font_size = 16
+text = "10"
+
+[node name="Text" type="Label" parent="Canvas/UI/Highscores/Score List/Score3/Score"]
+layout_mode = 0
+offset_top = -1.0
+offset_right = 12.0
+offset_bottom = 12.0
+theme_override_colors/font_color = Color(0.976471, 0.47451, 0.364706, 1)
+theme_override_fonts/font = ExtResource("13_8rl8v")
+theme_override_font_sizes/font_size = 16
+text = "10"
+
+[node name="Score4" type="SplitContainer" parent="Canvas/UI/Highscores/Score List"]
+layout_mode = 2
+mouse_filter = 2
+split_offset = 87
+dragging_enabled = false
+
+[node name="Rank" type="Label" parent="Canvas/UI/Highscores/Score List/Score4"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("13_8rl8v")
+theme_override_font_sizes/font_size = 16
+text = "#4"
+
+[node name="Text" type="Label" parent="Canvas/UI/Highscores/Score List/Score4/Rank"]
+layout_mode = 0
+offset_top = -1.0
+offset_right = 12.0
+offset_bottom = 12.0
+theme_override_colors/font_color = Color(0.976471, 0.47451, 0.364706, 1)
+theme_override_fonts/font = ExtResource("13_8rl8v")
+theme_override_font_sizes/font_size = 16
+text = "#4"
+
+[node name="Score" type="Label" parent="Canvas/UI/Highscores/Score List/Score4"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("13_8rl8v")
+theme_override_font_sizes/font_size = 16
+text = "10"
+
+[node name="Text" type="Label" parent="Canvas/UI/Highscores/Score List/Score4/Score"]
+layout_mode = 0
+offset_top = -1.0
+offset_right = 12.0
+offset_bottom = 12.0
+theme_override_colors/font_color = Color(0.976471, 0.47451, 0.364706, 1)
+theme_override_fonts/font = ExtResource("13_8rl8v")
+theme_override_font_sizes/font_size = 16
+text = "10"
+
+[node name="Score5" type="SplitContainer" parent="Canvas/UI/Highscores/Score List"]
+layout_mode = 2
+mouse_filter = 2
+split_offset = 87
+dragging_enabled = false
+
+[node name="Rank" type="Label" parent="Canvas/UI/Highscores/Score List/Score5"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("13_8rl8v")
+theme_override_font_sizes/font_size = 16
+text = "#5"
+
+[node name="Text" type="Label" parent="Canvas/UI/Highscores/Score List/Score5/Rank"]
+layout_mode = 0
+offset_top = -1.0
+offset_right = 12.0
+offset_bottom = 12.0
+theme_override_colors/font_color = Color(0.976471, 0.47451, 0.364706, 1)
+theme_override_fonts/font = ExtResource("13_8rl8v")
+theme_override_font_sizes/font_size = 16
+text = "#5"
+
+[node name="Score" type="Label" parent="Canvas/UI/Highscores/Score List/Score5"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("13_8rl8v")
+theme_override_font_sizes/font_size = 16
+text = "10"
+
+[node name="Text" type="Label" parent="Canvas/UI/Highscores/Score List/Score5/Score"]
+layout_mode = 0
+offset_top = -1.0
+offset_right = 12.0
+offset_bottom = 12.0
+theme_override_colors/font_color = Color(0.976471, 0.47451, 0.364706, 1)
+theme_override_fonts/font = ExtResource("13_8rl8v")
+theme_override_font_sizes/font_size = 16
+text = "10"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Canvas/UI"]
 libraries = {
@@ -320,6 +587,6 @@ offset_right = 167.0
 offset_bottom = 287.0
 texture = ExtResource("13_ctkf8")
 
-[connection signal="button_up" from="Canvas/UI/CenterContainer/HBoxContainer/Start" to="Canvas/UI" method="_on_start_button_up"]
-[connection signal="button_up" from="Canvas/UI/CenterContainer/HBoxContainer/HighScores" to="Canvas/UI" method="_on_high_scores_button_up"]
+[connection signal="button_up" from="Canvas/UI/Botões/HBoxContainer/Start" to="Canvas/UI" method="_on_start_button_up"]
+[connection signal="button_up" from="Canvas/UI/Botões/HBoxContainer/HighScores" to="Canvas/UI" method="_on_high_scores_button_up"]
 [connection signal="animation_finished" from="Canvas/UI/AnimationPlayer" to="Canvas/UI" method="_on_animation_player_animation_finished"]

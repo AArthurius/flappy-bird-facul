@@ -16,7 +16,7 @@ func _ready() -> void:
 	cano_baixo.position.y = cano_baixo.position.y + pos
 	if dir != 0:
 		rotation = deg_to_rad(90)
-		velocity.y = velocidade
+		velocity.y = -velocidade
 	else:
 		rotation = deg_to_rad(0)
 		velocity.x = -velocidade
@@ -33,4 +33,5 @@ func _on_despawn_timeout() -> void:
 
 func _on_points_area_entered(area: Area2D) -> void:  
 	if area.is_in_group("player"):
+		$Points.queue_free()
 		Global.addPoint()

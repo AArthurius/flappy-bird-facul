@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://cmgxm7xxbmllx"]
+[gd_scene load_steps=47 format=3 uid="uid://cmgxm7xxbmllx"]
 
 [ext_resource type="Script" uid="uid://s08ileitx4jg" path="res://Scripts/back_ground.gd" id="1_an0l0"]
 [ext_resource type="Texture2D" uid="uid://bixsuatw2nvos" path="res://sprites/background/céu azul.png" id="2_eqycv"]
@@ -22,9 +22,14 @@
 [ext_resource type="FontFile" uid="uid://bwuaaevpf7t67" path="res://fontes/m5x7.ttf" id="18_5fnkj"]
 [ext_resource type="Texture2D" uid="uid://duep833dflpau" path="res://sprites/UI/button_restart.png" id="19_vherq"]
 [ext_resource type="Texture2D" uid="uid://swhcajcet4tn" path="res://sprites/UI/button_menu.png" id="20_en3qn"]
+[ext_resource type="Texture2D" uid="uid://c6kefofckdd8y" path="res://sprites/UI/label_new.png" id="21_1swbg"]
 [ext_resource type="Texture2D" uid="uid://c1vfsnia3s4a3" path="res://sprites/rect_white.png" id="21_5fnkj"]
 [ext_resource type="Texture2D" uid="uid://banrmyp2xk20s" path="res://sprites/UI/button_restar_pressedt.png" id="22_nmi6f"]
+[ext_resource type="Texture2D" uid="uid://ck2x5ome3xjln" path="res://sprites/UI/medal_bronze.png" id="22_uoep5"]
+[ext_resource type="Texture2D" uid="uid://bxewh2hooiyk6" path="res://sprites/spark_0.png" id="23_gvcm3"]
 [ext_resource type="Texture2D" uid="uid://dyw0ofg6h03i" path="res://sprites/UI/button_menu pressed.png" id="24_c4i2n"]
+[ext_resource type="Texture2D" uid="uid://rwhhdorgiius" path="res://sprites/spark_1.png" id="24_w23ar"]
+[ext_resource type="Texture2D" uid="uid://djynet5cnwwxe" path="res://sprites/spark_2.png" id="25_r8p7e"]
 [ext_resource type="Texture2D" uid="uid://dvj1rgw1vwwo1" path="res://sprites/rect_black.png" id="26_ea3do"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_qn35j"]
@@ -373,6 +378,17 @@ tracks/19/keys = {
 "points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0)
 }
+tracks/20/type = "bezier"
+tracks/20/imported = false
+tracks/20/enabled = true
+tracks/20/path = NodePath("Game Over Screen/Game Over tems/Score Panel/Medal Icon:modulate:a")
+tracks/20/interp = 1
+tracks/20/loop_wrap = true
+tracks/20/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
 
 [sub_resource type="Animation" id="Animation_7rhuj"]
 resource_name = "fade out"
@@ -468,54 +484,6 @@ tracks/3/keys = {
 "handle_modes": PackedInt32Array(0, 0),
 "points": PackedFloat32Array(1, -0.1, 0, 0.1, 0, 0, -0.1, 0, 0.1, 0),
 "times": PackedFloat32Array(0, 0.2)
-}
-
-[sub_resource type="Animation" id="Animation_c4i2n"]
-resource_name = "instructions idle"
-loop_mode = 1
-tracks/0/type = "bezier"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Center Instructions:modulate:r")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0),
-"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 0.5, 1)
-}
-tracks/1/type = "bezier"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Center Instructions:modulate:g")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0),
-"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 0.5, 1)
-}
-tracks/2/type = "bezier"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Center Instructions:modulate:b")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0),
-"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 0.5, 1)
-}
-tracks/3/type = "bezier"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Center Instructions:modulate:a")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0),
-"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 0.5, 1)
 }
 
 [sub_resource type="Animation" id="Animation_gqmlc"]
@@ -614,8 +582,72 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0, 0.5)
 }
 
+[sub_resource type="Animation" id="Animation_c4i2n"]
+resource_name = "instructions idle"
+loop_mode = 1
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Center Instructions:modulate:r")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.5, 1)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Center Instructions:modulate:g")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.5, 1)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Center Instructions:modulate:b")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.5, 1)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Center Instructions:modulate:a")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.5, 1)
+}
+
+[sub_resource type="Animation" id="Animation_1swbg"]
+resource_name = "Fade Medal"
+length = 0.5
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Game Over Screen/Game Over tems/Score Panel/Medal Icon:modulate:a")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.5)
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_msvki"]
 _data = {
+&"Fade Medal": SubResource("Animation_1swbg"),
 &"Game Over": SubResource("Animation_nmi6f"),
 &"RESET": SubResource("Animation_msvki"),
 &"fade out": SubResource("Animation_7rhuj"),
@@ -624,6 +656,39 @@ _data = {
 &"game fade out": SubResource("Animation_ea3do"),
 &"instructions idle": SubResource("Animation_c4i2n")
 }
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gvcm3"]
+atlas = ExtResource("23_gvcm3")
+region = Rect2(0, 0, 1, 1)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gmmmg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gvcm3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_gvcm3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_w23ar")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_r8p7e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_w23ar")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_gvcm3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gvcm3")
+}],
+"loop": false,
+"name": &"default",
+"speed": 12.0
+}]
 
 [node name="Jogo" type="Node2D"]
 
@@ -691,13 +756,13 @@ position = Vector2(227, -90)
 position = Vector2(227, 32)
 
 [node name="MarkerV" type="Marker2D" parent="Spawner"]
-position = Vector2(-53, -180)
+position = Vector2(-46, 210)
 
 [node name="MarkerV2" type="Marker2D" parent="Spawner"]
-position = Vector2(56, -180)
+position = Vector2(56, 210)
 
 [node name="Timer" type="Timer" parent="Spawner"]
-wait_time = 2.0
+wait_time = 2.5
 
 [node name="Jogador" type="CharacterBody2D" parent="." groups=["player"]]
 z_index = 15
@@ -854,6 +919,8 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = 157.0
+offset_bottom = 157.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -923,6 +990,94 @@ theme_override_font_sizes/font_size = 16
 text = "123"
 horizontal_alignment = 2
 
+[node name="New best icon" type="TextureRect" parent="CanvasLayer/UI/Game Over Screen/Game Over tems/Score Panel"]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 1.0
+offset_right = 28.0
+offset_bottom = 8.0
+texture = ExtResource("21_1swbg")
+
+[node name="Medal Icon" type="TextureRect" parent="CanvasLayer/UI/Game Over Screen/Game Over tems/Score Panel"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = -43.0
+offset_top = -7.0
+offset_right = -21.0
+offset_bottom = 15.0
+pivot_offset = Vector2(11, 11)
+texture = ExtResource("22_uoep5")
+
+[node name="Spark" type="AnimatedSprite2D" parent="CanvasLayer/UI/Game Over Screen/Game Over tems/Score Panel/Medal Icon"]
+position = Vector2(19, 9)
+sprite_frames = SubResource("SpriteFrames_gmmmg")
+frame = 6
+frame_progress = 1.0
+
+[node name="Spark2" type="AnimatedSprite2D" parent="CanvasLayer/UI/Game Over Screen/Game Over tems/Score Panel/Medal Icon"]
+position = Vector2(12, 12)
+sprite_frames = SubResource("SpriteFrames_gmmmg")
+frame = 6
+frame_progress = 1.0
+
+[node name="Spark3" type="AnimatedSprite2D" parent="CanvasLayer/UI/Game Over Screen/Game Over tems/Score Panel/Medal Icon"]
+position = Vector2(7, 13)
+sprite_frames = SubResource("SpriteFrames_gmmmg")
+frame = 6
+frame_progress = 1.0
+
+[node name="Spark4" type="AnimatedSprite2D" parent="CanvasLayer/UI/Game Over Screen/Game Over tems/Score Panel/Medal Icon"]
+position = Vector2(12, 17)
+sprite_frames = SubResource("SpriteFrames_gmmmg")
+frame = 6
+frame_progress = 1.0
+
+[node name="Spark5" type="AnimatedSprite2D" parent="CanvasLayer/UI/Game Over Screen/Game Over tems/Score Panel/Medal Icon"]
+position = Vector2(6, 18)
+sprite_frames = SubResource("SpriteFrames_gmmmg")
+frame = 6
+frame_progress = 1.0
+
+[node name="Spark6" type="AnimatedSprite2D" parent="CanvasLayer/UI/Game Over Screen/Game Over tems/Score Panel/Medal Icon"]
+position = Vector2(10, 4)
+sprite_frames = SubResource("SpriteFrames_gmmmg")
+frame = 6
+frame_progress = 1.0
+
+[node name="Spark7" type="AnimatedSprite2D" parent="CanvasLayer/UI/Game Over Screen/Game Over tems/Score Panel/Medal Icon"]
+position = Vector2(16, 3)
+sprite_frames = SubResource("SpriteFrames_gmmmg")
+frame = 6
+frame_progress = 1.0
+
+[node name="Spark8" type="AnimatedSprite2D" parent="CanvasLayer/UI/Game Over Screen/Game Over tems/Score Panel/Medal Icon"]
+position = Vector2(3, 7)
+sprite_frames = SubResource("SpriteFrames_gmmmg")
+frame = 6
+frame_progress = 1.0
+
+[node name="Spark9" type="AnimatedSprite2D" parent="CanvasLayer/UI/Game Over Screen/Game Over tems/Score Panel/Medal Icon"]
+position = Vector2(14, 19)
+sprite_frames = SubResource("SpriteFrames_gmmmg")
+frame = 6
+frame_progress = 1.0
+
+[node name="Spark10" type="AnimatedSprite2D" parent="CanvasLayer/UI/Game Over Screen/Game Over tems/Score Panel/Medal Icon"]
+position = Vector2(20, 12)
+sprite_frames = SubResource("SpriteFrames_gmmmg")
+frame = 6
+frame_progress = 1.0
+
+[node name="Spark11" type="AnimatedSprite2D" parent="CanvasLayer/UI/Game Over Screen/Game Over tems/Score Panel/Medal Icon"]
+position = Vector2(9, 0)
+sprite_frames = SubResource("SpriteFrames_gmmmg")
+frame = 6
+frame_progress = 1.0
+
+[node name="Spark timer" type="Timer" parent="CanvasLayer/UI/Game Over Screen/Game Over tems"]
+wait_time = 0.7
+autostart = true
+
 [node name="Buttons" type="HBoxContainer" parent="CanvasLayer/UI/Game Over Screen/Game Over tems"]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 1
@@ -960,6 +1115,7 @@ texture = ExtResource("21_5fnkj")
 
 [node name="fade" type="TextureRect" parent="CanvasLayer/UI"]
 visible = false
+layout_mode = 0
 offset_left = -16.0
 offset_top = -9.0
 offset_right = 167.0
@@ -971,5 +1127,6 @@ texture = ExtResource("26_ea3do")
 [connection signal="animation_finished" from="CanvasLayer/UI/AnimationPlayer" to="CanvasLayer/UI" method="_on_animation_player_animation_finished"]
 [connection signal="animation_finished" from="CanvasLayer/UI/AnimationPlayer" to="CanvasLayer/UI/Game Over Screen" method="_on_animation_player_animation_finished"]
 [connection signal="pressed" from="CanvasLayer/UI/Pause Container/Pause Button" to="CanvasLayer/UI" method="_on_pause_button_pressed"]
+[connection signal="timeout" from="CanvasLayer/UI/Game Over Screen/Game Over tems/Spark timer" to="CanvasLayer/UI/Game Over Screen" method="_on_spark_timer_timeout"]
 [connection signal="button_up" from="CanvasLayer/UI/Game Over Screen/Game Over tems/Buttons/Restart Button" to="CanvasLayer/UI/Game Over Screen" method="_on_restart_button_button_up"]
 [connection signal="button_up" from="CanvasLayer/UI/Game Over Screen/Game Over tems/Buttons/Menu Button" to="CanvasLayer/UI/Game Over Screen" method="_on_menu_button_button_up"]
