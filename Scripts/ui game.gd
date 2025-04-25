@@ -43,6 +43,7 @@ func gameOver():
 	$fade.hide()
 	$Flash.show()
 	pause_button.visible = false
+	game_over_screen.gameOver()
 	animation.play("Game Over")
 	game_over_screen.show()
 

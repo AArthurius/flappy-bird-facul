@@ -28,8 +28,7 @@ func _ready() -> void:
 	medal_icon.hide()
 	hide()
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func gameOver():
 	scoreText.text = str(Global.currentScore)
 	bestText.text = str(Global.HighestScore)
 	
@@ -46,13 +45,10 @@ func _process(delta: float) -> void:
 		40:
 			medal_icon.texture = MEDAL_PLATINUM
 	
-	
-	
-	
-	
 	#sincronizar textos
 	scoreShadow.text = scoreText.text
 	bestShadow.text = bestText.text
+
 
 func _on_restart_button_button_up() -> void:
 	Global.currentScore = 0
