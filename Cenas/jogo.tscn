@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=3 uid="uid://cmgxm7xxbmllx"]
+[gd_scene load_steps=48 format=3 uid="uid://cmgxm7xxbmllx"]
 
 [ext_resource type="Script" uid="uid://s08ileitx4jg" path="res://Scripts/back_ground.gd" id="1_an0l0"]
 [ext_resource type="Texture2D" uid="uid://bixsuatw2nvos" path="res://sprites/background/céu azul.png" id="2_eqycv"]
@@ -35,6 +35,9 @@
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_qn35j"]
 normal = Vector2(0, 0.785)
 distance = -161.783
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_gvcm3"]
+normal = Vector2(-1, 0)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_45nkh"]
 animations = [{
@@ -746,6 +749,15 @@ position = Vector2(0, -54)
 rotation = 3.14159
 shape = SubResource("WorldBoundaryShape2D_qn35j")
 
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Cantos"]
+position = Vector2(74, -8)
+shape = SubResource("WorldBoundaryShape2D_gvcm3")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Cantos"]
+position = Vector2(-73, -10)
+rotation = 3.14159
+shape = SubResource("WorldBoundaryShape2D_gvcm3")
+
 [node name="Spawner" type="Node2D" parent="."]
 script = ExtResource("7_vherq")
 
@@ -759,7 +771,7 @@ position = Vector2(227, 32)
 position = Vector2(-46, 210)
 
 [node name="MarkerV2" type="Marker2D" parent="Spawner"]
-position = Vector2(56, 210)
+position = Vector2(51, 210)
 
 [node name="Timer" type="Timer" parent="Spawner"]
 wait_time = 2.5
@@ -793,6 +805,15 @@ position = Vector2(0, 85)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
 position = Vector2(1, 0)
 shape = SubResource("RectangleShape2D_5fnkj")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="hitbox"]
+position = Vector2(75, -93)
+shape = SubResource("WorldBoundaryShape2D_gvcm3")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="hitbox"]
+position = Vector2(-74, -95)
+rotation = 3.14159
+shape = SubResource("WorldBoundaryShape2D_gvcm3")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -919,8 +940,6 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = 157.0
-offset_bottom = 157.0
 grow_horizontal = 2
 grow_vertical = 2
 
