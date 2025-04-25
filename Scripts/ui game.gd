@@ -31,6 +31,7 @@ func fade_out_inst():
 	animation2.play("fade out")
 
 func _on_pause_button_pressed() -> void:
+	print("pause")
 	get_tree().paused = !get_tree().paused
 
 func flash():
@@ -59,3 +60,4 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 			animation.play("instructions fade out")
 		"game fade in":
 			$fade.hide()
+			

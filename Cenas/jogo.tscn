@@ -921,6 +921,7 @@ offset_right = 48.0
 offset_bottom = -40.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 texture = ExtResource("17_en3qn")
 
 [node name="Game Over Screen" type="CenterContainer" parent="CanvasLayer/UI"]
@@ -1145,6 +1146,7 @@ offset_left = -16.0
 offset_top = -9.0
 offset_right = 167.0
 offset_bottom = 287.0
+mouse_filter = 2
 texture = ExtResource("26_ea3do")
 
 [connection signal="timeout" from="Spawner/Timer" to="Spawner" method="_on_timer_timeout"]
