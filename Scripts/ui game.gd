@@ -6,6 +6,7 @@ extends Control
 @onready var pause_button: TextureButton = $"Pause Container/Pause Button"
 @onready var game_over_screen: Control = $"Game Over Screen"
 @onready var spawner: Node2D = $"../../Spawner"
+@onready var animation2: AnimationPlayer = $AnimationPlayer2
 
 const BUTTON_PAUSE = preload("res://sprites/UI/button_pause.png")
 const BUTTON_RESUME = preload("res://sprites/UI/button_resume.png")
@@ -27,7 +28,7 @@ func fade_out_inst():
 	#spawns first pipe
 	spawner.start()
 	#fades out instructons
-	animation.play("fade out")
+	animation2.play("fade out")
 
 func _on_pause_button_pressed() -> void:
 	get_tree().paused = !get_tree().paused
@@ -45,10 +46,16 @@ func gameOver():
 	game_over_screen.show()
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
-	if anim_name == "flash":
-		$Flash.queue_free()
-		gameOver()
-	if anim_name == "fade out":
-		$"Center Instructions".queue_free()
-	if anim_name == "game fade in":
-		$fade.hide()
+	match anim_name:
+		"flash":
+			$Flash.queue_free()
+			gameOver()
+		"instructions fade out":
+			if jogador.started:
+				$"Center Instructions".queue_free()
+			else:
+				animation.play("instructions fade in")
+		"instructions fade in":
+			animation.play("instructions fade out")
+		"game fade in":
+			$fade.hide()
